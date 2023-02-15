@@ -16,10 +16,11 @@ export default function TextForm(props) {
         setText(event.target.value)
     )
 
-        const [text, setText] =useState("Enter text here");
+        const [text, setText] =useState("");
 
     return (
-        <div>
+        <>
+        <div className="container">
            <h1>{props.heading}</h1>
             <div className="mb-3">
                 <textarea className="form-control" value={text} onChange={handleOnChange} id="add" rows="8"></textarea>
@@ -27,5 +28,14 @@ export default function TextForm(props) {
             <button className="btn btn-primary" value={text} onClick={handleUpClick}>conver to uppercase</button>
             <button className="btn btn-primary" value={text} onClick={handleDownClick}>conver to Lowercase</button>
       </div>
+      <div className="container my-5">
+        <h2>Your text summery</h2>
+        <p>{text.split(" ").length} words and {text.length} letters</p>
+        <p>{0.008 * text.split(" ").length} Minutes to read</p>
+        <h2>Preview</h2>
+        <p>{text}</p>
+
+      </div>
+      </>
     )
 }
